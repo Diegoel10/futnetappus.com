@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FutTrivia - Mobile Soccer Trivia App</title>
+    <title>Futnet & FutTrivia - Welcome to Our Network</title>
     <style>
         :root {
-            --primary-color: #10b981;
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --primary: #10b981;
             --primary-dark: #059669;
-            --dark: #1f2937;
-            --light: #f3f4f6;
-            --white: #ffffff;
-            --gray: #6b7280;
+            --text-light: #f8fafc;
+            --text-gray: #94a3b8;
         }
 
         * {
@@ -22,180 +22,261 @@
         }
 
         body {
-            background-color: var(--light);
-            color: var(--dark);
+            background-color: var(--bg-dark);
+            color: var(--text-light);
             line-height: 1.6;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            overflow-x: hidden;
         }
 
-        header {
-            background-color: var(--dark);
-            color: var(--white);
-            padding: 2.5rem 1rem;
+        /* Hero Banner Section */
+        .network-hero {
             text-align: center;
+            padding: 4rem 1rem 2rem 1rem;
+            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+            border-bottom: 2px solid #334155;
         }
 
-        header h1 {
-            font-size: 2.5rem;
+        .network-hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--text-light);
             margin-bottom: 0.5rem;
         }
 
-        header p {
-            color: var(--primary-color);
-            font-size: 1.1rem;
-            font-weight: 600;
+        .network-hero h1 span {
+            color: var(--primary);
         }
 
-        .container {
-            max-width: 900px;
-            margin: 2rem auto;
+        .network-hero p {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+        }
+
+        /* App Sections */
+        .app-section {
+            max-width: 1100px;
+            margin: 4rem auto;
             padding: 2.5rem;
-            background-color: var(--white);
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            width: 90%;
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            flex-wrap: wrap;
+            border: 1px solid #334155;
+        }
+
+        .app-info {
             flex: 1;
-        }
-
-        .hero {
+            min-width: 280px;
             text-align: center;
-            padding: 1rem 0;
         }
 
-        .hero h2 {
-            font-size: 2rem;
+        .app-logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 24px;
+            object-fit: cover;
             margin-bottom: 1rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+            border: 2px solid #475569;
         }
 
-        .hero p {
-            color: var(--gray);
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .download-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-bottom: 2.5rem;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--dark);
-            color: var(--white);
-            padding: 0.75rem 1.5rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background 0.2s;
-        }
-
-        .btn:hover {
-            background-color: #374151;
-        }
-
-        .btn-primary {
-            background-color: var(--primary-color);
-        }
-
-        .btn-primary:hover {
-            background-color: var(--primary-dark);
-        }
-
-        .policy-nav {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid #e5e7eb;
-            flex-wrap: wrap;
-        }
-
-        .policy-btn {
-            background-color: #e5e7eb;
-            color: var(--dark);
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: background 0.2s;
-        }
-
-        .policy-btn:hover {
-            background-color: #d1d5db;
-        }
-
-        .cross-promo {
-            background-color: #f9fafb;
-            border-left: 4px solid var(--primary-color);
-            padding: 1.5rem;
-            border-radius: 4px;
-            text-align: left;
-            margin-top: 2rem;
-        }
-
-        .cross-promo h3 {
+        .app-info h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
             margin-bottom: 0.5rem;
         }
 
-        .cross-promo a {
-            color: var(--primary-dark);
-            font-weight: bold;
-            text-decoration: none;
+        .app-info h2.futtrivia-title { color: #10b981; }
+        .app-info h2.futnet-title { color: #10b981; }
+
+        .app-info p {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
         }
 
-        .cross-promo a:hover {
+        /* Store Badges / Buttons */
+        .store-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .store-btn {
+            background-color: #000;
+            color: #fff;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: flex-start;
+            border: 1px solid #475569;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .store-btn:hover {
+            transform: translateY(-2px);
+            background-color: #1e293b;
+        }
+
+        .store-btn span {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            color: var(--text-gray);
+        }
+
+        .store-btn strong {
+            font-size: 0.95rem;
+        }
+
+        /* Mockup Gallery */
+        .mockups {
+            flex: 1.5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: -20px;
+            min-width: 300px;
+            position: relative;
+        }
+
+        .mockup-img {
+            width: 150px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            border: 3px solid #334155;
+            transition: transform 0.3s;
+        }
+
+        .mockup-img:hover {
+            transform: scale(1.03);
+            z-index: 10;
+        }
+
+        .mockup-img:nth-child(2) {
+            transform: translateY(-15px);
+            width: 165px;
+            z-index: 5;
+        }
+
+        /* Footer & Policies */
+        footer {
+            text-align: center;
+            padding: 3rem 1rem;
+            background-color: #090d16;
+            border-top: 1px solid #1e293b;
+            color: var(--text-gray);
+        }
+
+        .footer-tagline {
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #34d399;
             text-decoration: underline;
         }
 
-        footer {
-            text-align: center;
-            padding: 2rem;
-            color: var(--gray);
-            font-size: 0.9rem;
-            background-color: #e5e7eb;
+        @media (max-width: 768px) {
+            .app-section {
+                flex-direction: column;
+                padding: 1.5rem;
+            }
+            .network-hero h1 {
+                font-size: 2.2rem;
+            }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>FutTrivia</h1>
-        <p>Test Your Global Soccer Knowledge</p>
-    </header>
+    <!-- HERO SECTION -->
+    <div class="network-hero">
+        <h1>Welcome to <span>Our Network!</span></h1>
+        <p>Please check out one of our websites/apps.</p>
+    </div>
 
-    <div class="container">
-        <div class="hero">
-            <h2>Welcome to FutTrivia</h2>
-            <p>The ultimate trivia experience for football fans. Challenge your friends, climb the leaderboards, and prove your expertise on global soccer history, leagues, and tournaments.</p>
-            
-            <div class="download-buttons">
-                <a href="#" class="btn btn-primary">Download for Android (Google Play)</a>
-                <a href="#" class="btn">Download for iOS (App Store)</a>
+    <!-- FUTTRIVIA APP SECTION -->
+    <div class="app-section">
+        <div class="app-info">
+            <img src="AppIcon2.png" alt="FutTrivia Logo" class="app-logo">
+            <h2 class="futtrivia-title">FutTrivia</h2>
+            <p>Test your football knowledge!</p>
+            <div class="store-buttons">
+                <a href="#" class="store-btn">
+                    <span>Download on the</span>
+                    <strong>App Store</strong>
+                </a>
+                <a href="#" class="store-btn">
+                    <span>GET IT ON</span>
+                    <strong>Google Play</strong>
+                </a>
             </div>
-
-            <div class="cross-promo">
-                <h3>Looking to play real matches?</h3>
-                <p>Check out <a href="https://futnet.site" target="_blank">Futnet.site</a> to find and organize soccer games in your local area!</p>
-            </div>
-
-            <div class="policy-nav">
-                <a href="/futtriviaprivacy" class="policy-btn">Privacy Policy</a>
-                <a href="/futtriviaterms" class="policy-btn">Terms & Conditions</a>
-            </div>
+        </div>
+        <div class="mockups">
+            <img src="FutTriviaSS1.jpg" alt="FutTrivia Screenshot 1" class="mockup-img">
+            <img src="FutTriviaSS2.jpg" alt="FutTrivia Screenshot 2" class="mockup-img">
+            <img src="FutTriviaSS3.jpg" alt="FutTrivia Screenshot 3" class="mockup-img">
         </div>
     </div>
 
+    <!-- FUTNET APP SECTION -->
+    <div class="app-section">
+        <div class="app-info">
+            <img src="futnet icon.png" alt="Futnet Logo" class="app-logo">
+            <h2 class="futnet-title">Futnet</h2>
+            <p>Find and organize soccer games around your area!</p>
+            <div class="store-buttons">
+                <a href="https://futnet.site" target="_blank" class="store-btn" style="background-color: var(--primary-dark);">
+                    <span>VISIT WEBSITE</span>
+                    <strong>Futnet.site</strong>
+                </a>
+                <a href="#" class="store-btn">
+                    <span>GET IT ON</span>
+                    <strong>Google Play</strong>
+                </a>
+            </div>
+        </div>
+        <div class="mockups">
+            <img src="FutnetSS1.png" alt="Futnet Screenshot 1" class="mockup-img">
+            <img src="FutnetSS2.png" alt="Futnet Screenshot 2" class="mockup-img">
+            <img src="FutnetSS3.png" alt="Futnet Screenshot 3" class="mockup-img">
+        </div>
+    </div>
+
+    <!-- FOOTER & POLICIES -->
     <footer>
+        <div class="footer-tagline">⚽ Same Passion. Different Games. ⚽</div>
+        <div class="footer-links">
+            <a href="/futtriviaprivacy">Privacy Policy</a>
+            <a href="/futtriviaterms">Terms & Conditions</a>
+        </div>
         <p>&copy; 2026 FutTrivia &amp; Futnet. All rights reserved.</p>
     </footer>
 
