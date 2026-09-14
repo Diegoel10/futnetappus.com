@@ -90,8 +90,16 @@
             margin-bottom: 0.5rem;
         }
 
-        .app-info h2.futtrivia-title { color: #10b981; }
-        .app-info h2.futnet-title { color: #10b981; }
+        .app-info h2 a {
+            color: #10b981;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .app-info h2 a:hover {
+            color: #34d399;
+            text-decoration: underline;
+        }
 
         .app-info p {
             color: var(--text-gray);
@@ -105,6 +113,7 @@
             justify-content: center;
             gap: 1rem;
             flex-wrap: wrap;
+            margin-bottom: 1.5rem;
         }
 
         .store-btn {
@@ -136,15 +145,40 @@
             font-size: 0.95rem;
         }
 
+        /* Policy Buttons inside FutTrivia section */
+        .internal-policy-links {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #334155;
+        }
+
+        .internal-policy-btn {
+            background-color: #334155;
+            color: var(--text-light);
+            padding: 0.4rem 0.9rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .internal-policy-btn:hover {
+            background-color: #475569;
+        }
+
         /* Mockup Gallery */
         .mockups {
             flex: 1.5;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: -20px;
+            gap: 10px;
             min-width: 300px;
-            position: relative;
         }
 
         .mockup-img {
@@ -166,7 +200,7 @@
             z-index: 5;
         }
 
-        /* Footer & Policies */
+        /* Footer */
         footer {
             text-align: center;
             padding: 3rem 1rem;
@@ -179,28 +213,9 @@
             font-size: 1.1rem;
             letter-spacing: 2px;
             text-transform: uppercase;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             color: var(--text-light);
             font-weight: 600;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-links a {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.2s;
-        }
-
-        .footer-links a:hover {
-            color: #34d399;
-            text-decoration: underline;
         }
 
         @media (max-width: 768px) {
@@ -226,7 +241,7 @@
     <div class="app-section">
         <div class="app-info">
             <img src="AppIcon2.png" alt="FutTrivia Logo" class="app-logo">
-            <h2 class="futtrivia-title">FutTrivia</h2>
+            <h2><a href="/futtriviaprivacy" title="View FutTrivia Details">FutTrivia</a></h2>
             <p>Test your football knowledge!</p>
             <div class="store-buttons">
                 <a href="#" class="store-btn">
@@ -237,6 +252,11 @@
                     <span>GET IT ON</span>
                     <strong>Google Play</strong>
                 </a>
+            </div>
+            <!-- Privacy & Terms Buttons inside FutTrivia section -->
+            <div class="internal-policy-links">
+                <a href="/futtriviaprivacy" class="internal-policy-btn">Privacy Policy</a>
+                <a href="/futtriviaterms" class="internal-policy-btn">Terms & Conditions</a>
             </div>
         </div>
         <div class="mockups">
@@ -250,7 +270,7 @@
     <div class="app-section">
         <div class="app-info">
             <img src="futnet icon.png" alt="Futnet Logo" class="app-logo">
-            <h2 class="futnet-title">Futnet</h2>
+            <h2 style="color: #10b981;">Futnet</h2>
             <p>Find and organize soccer games around your area!</p>
             <div class="store-buttons">
                 <a href="https://futnet.site" target="_blank" class="store-btn" style="background-color: var(--primary-dark);">
@@ -270,13 +290,9 @@
         </div>
     </div>
 
-    <!-- FOOTER & POLICIES -->
+    <!-- FOOTER -->
     <footer>
         <div class="footer-tagline">⚽ Same Passion. Different Games. ⚽</div>
-        <div class="footer-links">
-            <a href="/futtriviaprivacy">Privacy Policy</a>
-            <a href="/futtriviaterms">Terms & Conditions</a>
-        </div>
         <p>&copy; 2026 FutTrivia &amp; Futnet. All rights reserved.</p>
     </footer>
 
