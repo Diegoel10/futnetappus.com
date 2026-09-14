@@ -82,23 +82,25 @@
             margin-bottom: 1rem;
             box-shadow: 0 4px 12px rgba(0,0,0,0.4);
             border: 2px solid #475569;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .app-logo:hover {
+            transform: scale(1.05);
         }
 
         .app-info h2 {
             font-size: 2.2rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
-        }
-
-        .app-info h2 a {
             color: #10b981;
-            text-decoration: none;
-            transition: color 0.2s;
+            cursor: pointer;
+            display: inline-block;
         }
 
-        .app-info h2 a:hover {
+        .app-info h2:hover {
             color: #34d399;
-            text-decoration: underline;
         }
 
         .app-info p {
@@ -113,7 +115,7 @@
             justify-content: center;
             gap: 1rem;
             flex-wrap: wrap;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .store-btn {
@@ -145,30 +147,52 @@
             font-size: 0.95rem;
         }
 
-        /* Policy Buttons inside FutTrivia section */
-        .internal-policy-links {
+        /* Clickable toggle helper text */
+        .toggle-hint {
+            font-size: 0.8rem;
+            color: var(--text-gray);
+            margin-top: 0.5rem;
+            cursor: pointer;
+        }
+        .toggle-hint:hover {
+            color: var(--text-light);
+            text-decoration: underline;
+        }
+
+        /* Hidden Policy Dropdown Panel */
+        .policy-dropdown {
+            display: none;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #334155;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .policy-dropdown.show {
             display: flex;
             justify-content: center;
             gap: 0.75rem;
             flex-wrap: wrap;
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid #334155;
         }
 
         .internal-policy-btn {
             background-color: #334155;
             color: var(--text-light);
-            padding: 0.4rem 0.9rem;
+            padding: 0.5rem 1rem;
             border-radius: 6px;
             text-decoration: none;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             font-weight: 600;
             transition: background 0.2s;
         }
 
         .internal-policy-btn:hover {
             background-color: #475569;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* Mockup Gallery */
@@ -240,9 +264,11 @@
     <!-- FUTTRIVIA APP SECTION -->
     <div class="app-section">
         <div class="app-info">
-            <img src="AppIcon2.png" alt="FutTrivia Logo" class="app-logo">
-            <h2><a href="/futtriviaprivacy" title="View FutTrivia Details">FutTrivia</a></h2>
+            <!-- Clicking logo or title toggles the policy buttons -->
+            <img src="AppIcon2.png" alt="FutTrivia Logo" class="app-logo" onclick="togglePolicies()">
+            <h2 onclick="togglePolicies()">FutTrivia</h2>
             <p>Test your football knowledge!</p>
+            
             <div class="store-buttons">
                 <a href="#" class="store-btn">
                     <span>Download on the</span>
@@ -253,12 +279,16 @@
                     <strong>Google Play</strong>
                 </a>
             </div>
-            <!-- Privacy & Terms Buttons inside FutTrivia section -->
-            <div class="internal-policy-links">
+
+            <div class="toggle-hint" onclick="togglePolicies()">Tap logo or title for Legal & Policies</div>
+
+            <!-- Hidden dropdown that appears when FutTrivia is clicked -->
+            <div id="policyDropdown" class="policy-dropdown">
                 <a href="/futtriviaprivacy" class="internal-policy-btn">Privacy Policy</a>
                 <a href="/futtriviaterms" class="internal-policy-btn">Terms & Conditions</a>
             </div>
         </div>
+        
         <div class="mockups">
             <img src="FutTriviaSS1.jpg" alt="FutTrivia Screenshot 1" class="mockup-img">
             <img src="FutTriviaSS2.jpg" alt="FutTrivia Screenshot 2" class="mockup-img">
@@ -295,6 +325,13 @@
         <div class="footer-tagline">⚽ Same Passion. Different Games. ⚽</div>
         <p>&copy; 2026 FutTrivia &amp; Futnet. All rights reserved.</p>
     </footer>
+
+    <script>
+        function togglePolicies() {
+            const dropdown = document.getElementById('policyDropdown');
+            dropdown.classList.toggle('show');
+        }
+    </script>
 
 </body>
 </html>
