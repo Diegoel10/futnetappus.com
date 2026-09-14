@@ -25,12 +25,15 @@
             background-color: var(--light);
             color: var(--dark);
             line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         header {
             background-color: var(--dark);
             color: var(--white);
-            padding: 2rem 1rem;
+            padding: 2.5rem 1rem;
             text-align: center;
         }
 
@@ -45,58 +48,20 @@
             font-weight: 600;
         }
 
-        /* Navigation Tabs */
-        .tabs-nav {
-            display: flex;
-            justify-content: center;
-            background-color: #111827;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            overflow-x: auto;
-        }
-
-        .tab-btn {
-            background: none;
-            border: none;
-            color: var(--gray);
-            padding: 1rem 1.5rem;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-        }
-
-        .tab-btn:hover {
-            color: var(--white);
-        }
-
-        .tab-btn.active {
-            color: var(--primary-color);
-            border-bottom: 3px solid var(--primary-color);
-        }
-
-        /* Content Containers */
         .container {
             max-width: 900px;
             margin: 2rem auto;
-            padding: 2rem;
+            padding: 2.5rem;
             background-color: var(--white);
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            width: 90%;
+            flex: 1;
         }
 
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        /* Home Tab Styling */
         .hero {
             text-align: center;
-            padding: 2rem 0;
+            padding: 1rem 0;
         }
 
         .hero h2 {
@@ -118,7 +83,7 @@
             justify-content: center;
             gap: 1rem;
             flex-wrap: wrap;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
         }
 
         .btn {
@@ -144,6 +109,31 @@
             background-color: var(--primary-dark);
         }
 
+        .policy-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e5e7eb;
+            flex-wrap: wrap;
+        }
+
+        .policy-btn {
+            background-color: #e5e7eb;
+            color: var(--dark);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .policy-btn:hover {
+            background-color: #d1d5db;
+        }
+
         .cross-promo {
             background-color: #f9fafb;
             border-left: 4px solid var(--primary-color);
@@ -167,41 +157,12 @@
             text-decoration: underline;
         }
 
-        /* Policy & Terms Typography */
-        h2.policy-title {
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-            color: var(--dark);
-        }
-
-        .effective-date {
-            color: var(--gray);
-            font-size: 0.9rem;
-            margin-bottom: 2rem;
-        }
-
-        h3.section-heading {
-            font-size: 1.2rem;
-            margin-top: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: var(--dark);
-        }
-
-        p.policy-text, li.policy-text {
-            color: #4b5563;
-            margin-bottom: 1rem;
-        }
-
-        ul.policy-list {
-            margin-left: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
         footer {
             text-align: center;
             padding: 2rem;
             color: var(--gray);
             font-size: 0.9rem;
+            background-color: #e5e7eb;
         }
     </style>
 </head>
@@ -212,105 +173,25 @@
         <p>Test Your Global Soccer Knowledge</p>
     </header>
 
-    <div class="tabs-nav">
-        <button class="tab-btn active" onclick="switchTab(event, 'home')">FutTrivia App</button>
-        <button class="tab-btn" onclick="switchTab(event, 'privacy')">Privacy Policy</button>
-        <button class="tab-btn" onclick="switchTab(event, 'terms')">Terms & Conditions</button>
-    </div>
-
     <div class="container">
-        <!-- HOME TAB -->
-        <div id="home" class="tab-content active">
-            <div class="hero">
-                <h2>Welcome to FutTrivia</h2>
-                <p>The ultimate trivia experience for football fans. Challenge your friends, climb the leaderboards, and prove your expertise on global soccer history, leagues, and tournaments.</p>
-                
-                <div class="download-buttons">
-                    <a href="#" class="btn btn-primary">Download for Android (Google Play)</a>
-                    <a href="#" class="btn">Download for iOS (App Store)</a>
-                </div>
-
-                <div class="cross-promo">
-                    <h3>Looking to play real matches?</h3>
-                    <p>Check out <a href="https://futnet.site" target="_blank">Futnet.site</a> to find and organize soccer games in your local area!</p>
-                </div>
+        <div class="hero">
+            <h2>Welcome to FutTrivia</h2>
+            <p>The ultimate trivia experience for football fans. Challenge your friends, climb the leaderboards, and prove your expertise on global soccer history, leagues, and tournaments.</p>
+            
+            <div class="download-buttons">
+                <a href="#" class="btn btn-primary">Download for Android (Google Play)</a>
+                <a href="#" class="btn">Download for iOS (App Store)</a>
             </div>
-        </div>
 
-        <!-- PRIVACY POLICY TAB -->
-        <div id="privacy" class="tab-content">
-            <h2 class="policy-title">Privacy Policy</h2>
-            <p class="effective-date">Effective Date: September 14, 2026</p>
+            <div class="cross-promo">
+                <h3>Looking to play real matches?</h3>
+                <p>Check out <a href="https://futnet.site" target="_blank">Futnet.site</a> to find and organize soccer games in your local area!</p>
+            </div>
 
-            <p class="policy-text">At FutTrivia ("we", "our", or "us"), we respect your privacy and are committed to protecting it through our compliance with this policy. This policy describes the types of information we may collect from you or that you may provide when you use the FutTrivia mobile application.</p>
-
-            <h3 class="section-heading">1. Information We Collect</h3>
-            <p class="policy-text">We may collect information from you when you use our app, including:</p>
-            <ul class="policy-list">
-                <li class="policy-text"><strong>Account Information:</strong> If you sign in using third-party services (such as Google Sign-In), we collect basic profile data like your name, email address, and profile picture to manage your user profile and game scores.</li>
-                <li class="policy-text"><strong>Game Data:</strong> Your trivia scores, progress, levels completed, and in-app achievements.</li>
-                <li class="policy-text"><strong>Usage Data:</strong> Anonymous analytics regarding how you interact with the app to help us improve performance and fix bugs.</li>
-            </ul>
-
-            <h3 class="section-heading">2. How We Use Your Information</h3>
-            <p class="policy-text">We use the information we collect to:</p>
-            <ul class="policy-list">
-                <li class="policy-text">Create and manage your user account and leaderboard standings.</li>
-                <li class="policy-text">Provide, maintain, and improve the FutTrivia application.</li>
-                <li class="policy-text">Respond to your customer support requests or feedback.</li>
-            </ul>
-
-            <h3 class="section-heading">3. Data Security</h3>
-            <p class="policy-text">We implement reasonable administrative, technical, and physical security measures to protect your personal information against unauthorized access, loss, or alteration.</p>
-
-            <h3 class="section-heading">4. Third-Party Services</h3>
-            <p class="policy-text">FutTrivia may integrate with third-party services (such as authentication providers or cloud databases like Firebase). These services have their own privacy policies governing how they handle data.</p>
-
-            <h3 class="section-heading">5. Children's Privacy</h3>
-            <p class="policy-text">Our app is designed for general audiences and soccer fans of all ages. We do not knowingly collect personally identifiable information from children under the age of 13 without appropriate parental consent.</p>
-
-            <h3 class="section-heading">6. Changes to This Policy</h3>
-            <p class="policy-text">We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page.</p>
-
-            <h3 class="section-heading">7. Contact Us</h3>
-            <p class="policy-text">If you have any questions about this Privacy Policy, please contact us through our website at futnetappus.com.</p>
-        </div>
-
-        <!-- TERMS & CONDITIONS TAB -->
-        <div id="terms" class="tab-content">
-            <h2 class="policy-title">Terms & Conditions</h2>
-            <p class="effective-date">Effective Date: September 14, 2026</p>
-
-            <p class="policy-text">Welcome to FutTrivia! These Terms and Conditions ("Terms") govern your use of the FutTrivia mobile application. By downloading, installing, or using the app, you agree to be bound by these Terms.</p>
-
-            <h3 class="section-heading">1. Acceptance of Terms</h3>
-            <p class="policy-text">By accessing or using FutTrivia, you confirm that you accept these Terms and agree to comply with them. If you do not agree, you must not use the application.</p>
-
-            <h3 class="section-heading">2. License to Use</h3>
-            <p class="policy-text">We grant you a personal, non-transferable, non-exclusive, revocable license to install and use FutTrivia on your personal mobile device strictly for your personal, non-commercial entertainment.</p>
-
-            <h3 class="section-heading">3. User Conduct</h3>
-            <p class="policy-text">You agree not to:</p>
-            <ul class="policy-list">
-                <li class="policy-text">Use the app for any unlawful purpose or in violation of any local, state, or international law.</li>
-                <li class="policy-text">Attempt to reverse engineer, decompile, hack, or extract the source code of FutTrivia.</li>
-                <li class="policy-text">Manipulate leaderboards or exploit bugs to gain unfair advantages in gameplay.</li>
-            </ul>
-
-            <h3 class="section-heading">4. Intellectual Property</h3>
-            <p class="policy-text">All content, features, functionality, trademarks, and graphics within FutTrivia are owned by us or our licensors and are protected by international copyright and trademark laws.</p>
-
-            <h3 class="section-heading">5. Termination</h3>
-            <p class="policy-text">We reserve the right to suspend or terminate your access to FutTrivia at any time, without notice, for conduct that we believe violates these Terms or is harmful to other users or us.</p>
-
-            <h3 class="section-heading">6. Limitation of Liability</h3>
-            <p class="policy-text">FutTrivia is provided on an "AS IS" and "AS AVAILABLE" basis. We do not warrant that the app will be uninterrupted, secure, or error-free. We shall not be liable for any indirect, incidental, or consequential damages arising out of your use of the app.</p>
-
-            <h3 class="section-heading">7. Changes to Terms</h3>
-            <p class="policy-text">We reserve the right to modify these Terms at any time. Continued use of the app following any changes constitutes your acceptance of the revised Terms.</p>
-
-            <h3 class="section-heading">8. Contact Information</h3>
-            <p class="policy-text">If you have any questions regarding these Terms, please reach out via futnetappus.com.</p>
+            <div class="policy-nav">
+                <a href="/futtriviaprivacy" class="policy-btn">Privacy Policy</a>
+                <a href="/futtriviaterms" class="policy-btn">Terms & Conditions</a>
+            </div>
         </div>
     </div>
 
@@ -318,24 +199,5 @@
         <p>&copy; 2026 FutTrivia &amp; Futnet. All rights reserved.</p>
     </footer>
 
-    <script>
-        function switchTab(evt, tabName) {
-            // Hide all tab contents
-            const contents = document.getElementsByClassName("tab-content");
-            for (let i = 0; i < contents.length; i++) {
-                contents[i].classList.remove("active");
-            }
-
-            // Remove active class from all buttons
-            const buttons = document.getElementsByClassName("tab-btn");
-            for (let i = 0; i < buttons.length; i++) {
-                buttons[i].classList.remove("active");
-            }
-
-            // Show current tab and add active class to clicked button
-            document.getElementById(tabName).classList.add("active");
-            evt.currentTarget.classList.add("active");
-        }
-    </script>
 </body>
 </html>
