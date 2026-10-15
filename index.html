@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Futnet & FutTrivia - Welcome to Our Network</title>
+    <title>Futnet, FutTrivia & Hoops IQ - Welcome to Our Network</title>
     <style>
         :root {
             --bg-dark: #0f172a;
             --card-bg: #1e293b;
             --primary: #10b981;
             --primary-dark: #059669;
+            --hoops: #f97316;
+            --hoops-light: #fb923c;
             --text-light: #f8fafc;
             --text-gray: #94a3b8;
         }
@@ -101,6 +103,15 @@
 
         .app-info h2:hover {
             color: #34d399;
+        }
+
+        /* Hoops IQ accent */
+        .hoops .app-info h2 {
+            color: var(--hoops);
+        }
+
+        .hoops .app-info h2:hover {
+            color: var(--hoops-light);
         }
 
         .app-info p {
@@ -246,9 +257,20 @@
             .app-section {
                 flex-direction: column;
                 padding: 1.5rem;
+                margin: 2rem 1rem;
             }
             .network-hero h1 {
                 font-size: 2.2rem;
+            }
+            .mockups {
+                min-width: 0;
+                width: 100%;
+            }
+            .mockup-img {
+                width: 30%;
+            }
+            .mockup-img:nth-child(2) {
+                width: 33%;
             }
         }
     </style>
@@ -265,10 +287,10 @@
     <div class="app-section">
         <div class="app-info">
             <!-- Clicking logo or title toggles the policy buttons -->
-            <img src="AppIcon2.png" alt="FutTrivia Logo" class="app-logo" onclick="togglePolicies()">
-            <h2 onclick="togglePolicies()">FutTrivia</h2>
+            <img src="AppIcon2.png" alt="FutTrivia Logo" class="app-logo" onclick="togglePolicies('futtriviaPolicies')">
+            <h2 onclick="togglePolicies('futtriviaPolicies')">FutTrivia</h2>
             <p>Test your football knowledge!</p>
-            
+
             <div class="store-buttons">
                 <a href="#" class="store-btn">
                     <span>Download on the</span>
@@ -280,19 +302,54 @@
                 </a>
             </div>
 
-            <div class="toggle-hint" onclick="togglePolicies()">Tap logo or title for Legal & Policies</div>
+            <div class="toggle-hint" onclick="togglePolicies('futtriviaPolicies')">Tap logo or title for Legal & Policies</div>
 
             <!-- Hidden dropdown that appears when FutTrivia is clicked -->
-            <div id="policyDropdown" class="policy-dropdown">
+            <div id="futtriviaPolicies" class="policy-dropdown">
                 <a href="/futtriviaprivacy" class="internal-policy-btn">Privacy Policy</a>
                 <a href="/futtriviaterms" class="internal-policy-btn">Terms & Conditions</a>
             </div>
         </div>
-        
+
         <div class="mockups">
-       <img src="FutTriviaSS1.jpg" alt="FutTrivia Screenshot 1" class="mockup-img">
-<img src="FutTriviaSS2.jpg" alt="FutTrivia Screenshot 2" class="mockup-img">
-<img src="FutTriviaSS3.jpg" alt="FutTrivia Screenshot 3" class="mockup-img">
+            <img src="FutTriviaSS1.jpg" alt="FutTrivia Screenshot 1" class="mockup-img">
+            <img src="FutTriviaSS2.jpg" alt="FutTrivia Screenshot 2" class="mockup-img">
+            <img src="FutTriviaSS3.jpg" alt="FutTrivia Screenshot 3" class="mockup-img">
+        </div>
+    </div>
+
+    <!-- HOOPS IQ APP SECTION -->
+    <div class="app-section hoops">
+        <div class="app-info">
+            <!-- Clicking logo or title toggles the policy buttons -->
+            <img src="HoopsIQIcon.png" alt="Hoops IQ Logo" class="app-logo" onclick="togglePolicies('hoopsiqPolicies')">
+            <h2 onclick="togglePolicies('hoopsiqPolicies')">Hoops IQ</h2>
+            <p>Test your basketball knowledge!</p>
+
+            <div class="store-buttons">
+                <a href="#" class="store-btn">
+                    <span>Download on the</span>
+                    <strong>App Store</strong>
+                </a>
+                <a href="#" class="store-btn">
+                    <span>GET IT ON</span>
+                    <strong>Google Play</strong>
+                </a>
+            </div>
+
+            <div class="toggle-hint" onclick="togglePolicies('hoopsiqPolicies')">Tap logo or title for Legal & Policies</div>
+
+            <!-- Hidden dropdown that appears when Hoops IQ is clicked -->
+            <div id="hoopsiqPolicies" class="policy-dropdown">
+                <a href="/hoopsiqprivacy" class="internal-policy-btn">Privacy Policy</a>
+                <a href="/hoopsiqterms" class="internal-policy-btn">Terms & Conditions</a>
+            </div>
+        </div>
+
+        <div class="mockups">
+            <img src="HoopsIQSS1.png" alt="Hoops IQ Screenshot 1" class="mockup-img">
+            <img src="HoopsIQSS2.png" alt="Hoops IQ Screenshot 2" class="mockup-img">
+            <img src="HoopsIQSS3.png" alt="Hoops IQ Screenshot 3" class="mockup-img">
         </div>
     </div>
 
@@ -322,14 +379,14 @@
 
     <!-- FOOTER -->
     <footer>
-        <div class="footer-tagline">⚽ Same Passion. Different Games. ⚽</div>
-        <p>&copy; 2026 FutTrivia &amp; Futnet. All rights reserved.</p>
+        <div class="footer-tagline">⚽ Same Passion. Different Games. 🏀</div>
+        <p>&copy; 2026 FutTrivia, Hoops IQ &amp; Futnet. All rights reserved.</p>
     </footer>
 
     <script>
-        function togglePolicies() {
-            const dropdown = document.getElementById('policyDropdown');
-            dropdown.classList.toggle('show');
+        function togglePolicies(id) {
+            const dropdown = document.getElementById(id);
+            if (dropdown) dropdown.classList.toggle('show');
         }
     </script>
 
